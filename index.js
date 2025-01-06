@@ -11,6 +11,15 @@ let server=http.createServer((req,res)=>{
    {name:'sham',
     company:'db',
    }
+     {
+         produtcs: "looper",
+          nameof: "skin care",
+  },
+   {
+    
+          name: "sham",
+          company: "db",
+    },
   ],
   };
   res.end(JSON.stringify(course))
