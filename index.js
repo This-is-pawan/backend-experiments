@@ -30,4 +30,33 @@ let server=http.createServer((req,res)=>{
  };
 });
 server.listen("5000")
-//  This way is not enough for conditions so we work with express
+//  This above written way is not enough for conditions so we work with express
+let express=require('express');
+let mongoose=require('mongoose');;
+require('dotnev').cofig()
+
+let app = express()
+
+app.use(express.json());
+app.post('/api/enquiry-insert',(req,res)=>{
+  res.send('data saved')
+});
+
+
+
+mongoose.connect(process.env.DBURL).then(()=>{
+  console.log('connected to mogodb');
+   app.listen('3000');
+   
+  //  both can  use in it 
+  // app.listen(process.env.PORT,()=>{
+  //   console.log('server is running on port '+ process.env.PORT);
+    
+  // }); // In which we can use the arrow fuction
+
+});
+// it is a pomise 
+
+
+
+
