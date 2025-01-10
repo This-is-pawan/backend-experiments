@@ -2,6 +2,7 @@
 1)First of all we install node LTS version
 2)install vs code 
 
+NOTE:we can also  .env import in it 
 firstly we create a package.json it is use for empty node application ( use cmd : npm init OR npm init -y 
 )
   Add this code in package.json
@@ -38,7 +39,6 @@ app.get('/', (req, res) => {
 3) After coma send is a callback function with two parameter in it request,response
 read more API reference 4.x
 https://expressjs.com/en/4x/api.html
-
 
 
 app.listen(port, () => {
