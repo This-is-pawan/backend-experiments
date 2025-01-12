@@ -96,3 +96,38 @@ function App() {
 export default App;
 
 
+const express = require("express");
+// import express from "express" above and this line is same it is common js and above is module js style
+require("dotenv").config();
+// or import 'dotenv/config'
+
+const app = express();
+// app have a many kind of fuctionality like MATH.many
+const port = 4000;
+
+app.get("/", (req, res) => {
+  res.send('homepage of jokes');
+});
+app.get("/about", (req, res) => {
+  let jokes=[{
+    id:1,
+    text:' What does a storm cloud wear under his raincoat? Thunderwear.'
+     
+  },
+  {
+    id:2,
+    text:' What does a storm cloud wear under his raincoat? Thunderwear.'
+     
+  },{
+    id:1,
+    text:' What does a storm cloud wear under his raincoat? Thunderwear.'
+     
+  }
+  ]
+  res.send(jokes);
+});
+app.listen(process.env.PORT||3000, () => {
+  console.log(`Example app listening on port ${port}`);
+});
+
+
