@@ -44,6 +44,7 @@ app.post('/api/enquiry-insert',(req,res)=>{
 
 
 
+
 mongoose.connect(process.env.DBURL).then(()=>{
   console.log('connected to mogodb');
    app.listen('3000');
@@ -58,5 +59,40 @@ mongoose.connect(process.env.DBURL).then(()=>{
 // it is a pomise 
 
 
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+
+function App() {
+  const [jokes, setJokes] = useState([]);
+
+  useEffect(() => {
+
+    const fetchJokes = async () => {
+      try {
+        const response = await axios.get('http://localhost:4000/about');
+        setJokes(response.data); 
+      } catch (error) {
+        console.error('Error fetching jokes:', error);
+      }
+    };
+
+    fetchJokes();
+  }, []);
+
+  return (
+    <>
+      <h3 style={{ letterSpacing: '2px', textAlign: 'center' }}>
+        Full Stack Project Experiment
+      </h3>
+      {jokes.map((item) => (
+        <div className="joking" key={item.id}>
+          <div>{item.text}</div>
+        </div>
+      ))}
+    </>
+  );
+}
+
+export default App;
 
 
